@@ -8,6 +8,7 @@ public class SimbologyAppApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SimbologyAppApplication.class, args);
+		System.out.println("Inicio aplicacion");
 	}
 
 }
