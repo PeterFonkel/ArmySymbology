@@ -1,4 +1,4 @@
-package com.militarysymbology.simbologyApp.entities;
+package com.peterfonkel.armyIconsApp.entities;
 
 public interface Drawable {
 	
