@@ -1,0 +1,95 @@
+<div class="row m-2">
+    <div class="col-5"></div>
+    <button type="button" class="btn btn-success col-2" (click)="openModalPost()">NUEVO</button>
+    <div class="col-5"></div>
+</div>
+
+<div *ngFor="let symbol of symbols" style="display:inline-block;" class="row m-2">
+    <app-symbol [symbol]="symbol" (deleteSymbolEvent)="deleteSymbol($event)" (modifySymbolEvent)="openModalModify($event)"></app-symbol>
+</div>
+
+
+<!-- Modal Modificar Symbol-->
+<div class="modal fade" id="modifyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modificar Simbolo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" class="m-4">
+            <div class="m-2 row">
+              <label for="tamaño" class="col-3">Tamaño: </label>
+              <input type="text" name="tamaño" [(ngModel)]="symbol.size" class="col-9">
+            </div>
+            <div class="m-2 row">
+              <label for="branch" class="col-3">Especialidad: </label>
+              <input type="text" name="branch" [(ngModel)]="symbol.branch" class="col-9">
+            </div>
+            <div class="m-2 row">
+              <label for="mobility" class="col-3">Movilidad: </label>
+              <input type="text" name="mobility" [(ngModel)]="symbol.mobility" class="col-9">
+            </div>
+            <div class="m-2 row">
+              <label for="" class="col-3">Capacidad Especial: </label>
+              <input type="text" name="specialCapability" [(ngModel)]="symbol.specialCapability" class="col-9">
+            </div>
+            <div class="m-2 row">
+                <label for="" class="col-3">Propio/Enemigo: </label>
+                <input type="text" name="affiliation" [(ngModel)]="symbol.affiliation" class="col-9">
+              </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+          <button type="button" class="btn btn-warning" (click)="modifySymbol()" data-bs-dismiss="modal">MODIFICAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+<!-- Modal Nuevo Symbol-->
+<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Simbolo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" class="m-4">
+            <div class="m-2 row">
+              <label for="tamaño" class="col-3">Tamaño: </label>
+              <input type="text" name="tamaño" [(ngModel)]="symbol.size" class="col-9">
+            </div>
+            <div class="m-2 row">
+              <label for="branch" class="col-3">Especialidad: </label>
+              <input type="text" name="branch" [(ngModel)]="symbol.branch" class="col-9">
+            </div>
+            <div class="m-2 row">
+              <label for="mobility" class="col-3">Movilidad: </label>
+              <input type="text" name="mobility" [(ngModel)]="symbol.mobility" class="col-9">
+            </div>
+            <div class="m-2 row">
+              <label for="" class="col-3">Capacidad Especial: </label>
+              <input type="text" name="specialCapability" [(ngModel)]="symbol.specialCapability" class="col-9">
+            </div>
+            <div class="m-2 row">
+                <label for="" class="col-3">Propio/Enemigo: </label>
+                <input type="text" name="affiliation" [(ngModel)]="symbol.affiliation" class="col-9">
+              </div>
+            
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+          <button type="button" class="btn btn-warning" (click)="postSymbol()" data-bs-dismiss="modal">CREAR NUEVO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

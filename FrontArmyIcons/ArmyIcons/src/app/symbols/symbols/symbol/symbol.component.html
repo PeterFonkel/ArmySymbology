@@ -1,0 +1,11 @@
+<div class="card" style="width: 18rem;">
+    <img src="{{symbol.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{symbol.size}} de {{symbol.branch}} {{symbol.mobility}} {{symbol.specialCapability}} {{symbol.affiliation}}</h5>
+      <p>{{symbol.id}}</p>
+      <a href="#" class="btn btn-success m-1">Copiar</a>
+      <a href="#" class="btn btn-primary m-1">Descargar</a>
+      <a class="btn btn-danger m-1" (click)="deleteSymbol()">Borrar</a>
+      <a class="btn btn-warning m-1" (click)="openModifyModal()">Modificar</a>
+    </div>
+  </div>
