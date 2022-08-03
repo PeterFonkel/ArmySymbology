@@ -3,6 +3,57 @@
     <button type="button" class="btn btn-success col-2" (click)="openModalPost()">NUEVO</button>
     <div class="col-5"></div>
 </div>
+<hr>
+<div class="row m-2">
+    <div class="col-4 col-md-2 my-1">Tamaño</div>
+    <select class="col-6 col-md-3 my-1" name="size" id="size" [(ngModel)]="symbolSearch.size">
+      <option value= "">Todas</option>
+      <option *ngFor="let sizeType of sizeTypes" value={{sizeType.size}}>{{sizeType.size}}</option>  
+    </select>
+    <div class="col-2 col-md-1 my-1"></div>
+
+    <div class="col-4 col-md-2 my-1">Arma</div>
+    <select class="col-6 col-md-3 my-1" name="branch" id="branch" [(ngModel)]="symbolSearch.branch">
+      <option value= "">Todas</option>
+      <option *ngFor="let branchType of branchTypes" value={{branchType.branch}}>{{branchType.branch}}</option>
+    </select>
+    <div class="col-1"></div>
+
+   
+</div>
+<div class="row m-2">
+  <div class="col-4 col-md-2 my-1">Movilidad</div>
+    <select class="col-6 col-md-3 my-1" name="mobility" id="mobility" [(ngModel)]="symbolSearch.mobility">
+      <option value= "">Todas</option>
+      <option *ngFor="let mobilityType of mobilityTypes" value={{mobilityType.mobility}}>{{mobilityType.mobility}}</option>
+    </select>
+    <div class="col-1"></div>
+
+    <div class="col-4 col-md-2 my-1">Especial</div>
+    <select class="col-6 col-md-3 my-1" name="special" id="special" [(ngModel)]="symbolSearch.specialCapability">
+      <option value= "">Todas</option>
+      <option *ngFor="let specialType of specialTypes" value={{specialType.specialCapability}}>{{specialType.specialCapability}}</option>
+    </select>
+    <div class="col-1"></div>
+</div>
+
+<div class="row m-2">
+  <div class="col-4 col-md-2 my-1">Afiliación</div>
+    <select class="col-6 col-md-3 my-1" name="affiliation" id="affiliation" [(ngModel)]="symbolSearch.affiliation">
+      <option value= "">Todas</option>
+      <option *ngFor="let affiliationType of affiliationTypes" value={{affiliationType.affiliation}}>{{affiliationType.affiliation}}</option>
+    </select>
+    <div class="col-1"></div>
+</div>
+
+
+<div class="row m-2">
+  <div class="col-5"></div>
+  <button type="button" class="btn btn-primary col-2" (click)="searchSymbols()">BUSCAR</button>
+  <div class="col-5"></div>
+</div>
+
+<hr>
 
 <div *ngFor="let symbol of symbols" style="display:inline-block;" class="row m-2">
     <app-symbol [symbol]="symbol" (deleteSymbolEvent)="deleteSymbol($event)" (modifySymbolEvent)="openModalModify($event)"></app-symbol>
@@ -20,24 +71,39 @@
         <div class="modal-body">
           <form action="" class="m-4">
             <div class="m-2 row">
-              <label for="tamaño" class="col-3">Tamaño: </label>
-              <input type="text" name="tamaño" [(ngModel)]="symbol.size" class="col-9">
+              <label for="tamaño" class="col-4">Tamaño: </label>
+              <select class="col-6 col-md-7 my-1" name="size" id="size" [(ngModel)]="symbol.size">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let sizeType of sizeTypes" value={{sizeType.size}}>{{sizeType.size}}</option>  
+              </select>
             </div>
             <div class="m-2 row">
-              <label for="branch" class="col-3">Especialidad: </label>
-              <input type="text" name="branch" [(ngModel)]="symbol.branch" class="col-9">
+              <label for="branch" class="col-4">Arma: </label>
+              <select class="col-6 col-md-7 my-1" name="branch" id="branch" [(ngModel)]="symbol.branch">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let branchType of branchTypes" value={{branchType.branch}}>{{branchType.branch}}</option>
+              </select>
             </div>
             <div class="m-2 row">
-              <label for="mobility" class="col-3">Movilidad: </label>
-              <input type="text" name="mobility" [(ngModel)]="symbol.mobility" class="col-9">
+              <label for="mobility" class="col-4">Movilidad: </label>
+              <select class="col-6 col-md-7 my-1" name="mobility" id="mobility" [(ngModel)]="symbol.mobility">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let mobilityType of mobilityTypes" value={{mobilityType.mobility}}>{{mobilityType.mobility}}</option>
+              </select>
             </div>
             <div class="m-2 row">
-              <label for="" class="col-3">Capacidad Especial: </label>
-              <input type="text" name="specialCapability" [(ngModel)]="symbol.specialCapability" class="col-9">
+              <label for="" class="col-4">Especial: </label>
+              <select class="col-6 col-md-7 my-1" name="special" id="special" [(ngModel)]="symbol.specialCapability">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let specialType of specialTypes" value={{specialType.specialCapability}}>{{specialType.specialCapability}}</option>
+              </select>
             </div>
             <div class="m-2 row">
-                <label for="" class="col-3">Propio/Enemigo: </label>
-                <input type="text" name="affiliation" [(ngModel)]="symbol.affiliation" class="col-9">
+                <label for="" class="col-4">Afiliación: </label>
+                <select class="col-6 col-md-7 my-1" name="affiliation" id="affiliation" [(ngModel)]="symbol.affiliation">
+                  <option value= "">Sin selección</option>
+                  <option *ngFor="let affiliationType of affiliationTypes" value={{affiliationType.affiliation}}>{{affiliationType.affiliation}}</option>
+                </select>
               </div>
             
           </form>
@@ -63,24 +129,39 @@
         <div class="modal-body">
           <form action="" class="m-4">
             <div class="m-2 row">
-              <label for="tamaño" class="col-3">Tamaño: </label>
-              <input type="text" name="tamaño" [(ngModel)]="symbol.size" class="col-9">
+              <label for="tamaño" class="col-4">Tamaño: </label>
+              <select class="col-6 col-md-7 m-1" name="size" id="size" [(ngModel)]="symbol.size">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let sizeType of sizeTypes" value={{sizeType.size}}>{{sizeType.size}}</option>  
+              </select>
             </div>
             <div class="m-2 row">
-              <label for="branch" class="col-3">Especialidad: </label>
-              <input type="text" name="branch" [(ngModel)]="symbol.branch" class="col-9">
+              <label for="branch" class="col-4">Arma: </label>
+              <select class="col-6 col-md-7 m-1" name="branch" id="branch" [(ngModel)]="symbol.branch">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let branchType of branchTypes" value={{branchType.branch}}>{{branchType.branch}}</option>
+              </select>
             </div>
             <div class="m-2 row">
-              <label for="mobility" class="col-3">Movilidad: </label>
-              <input type="text" name="mobility" [(ngModel)]="symbol.mobility" class="col-9">
+              <label for="mobility" class="col-4">Movilidad: </label>
+              <select class="col-6 col-md-7 m-1" name="mobility" id="mobility" [(ngModel)]="symbol.mobility">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let mobilityType of mobilityTypes" value={{mobilityType.mobility}}>{{mobilityType.mobility}}</option>
+              </select>
             </div>
             <div class="m-2 row">
-              <label for="" class="col-3">Capacidad Especial: </label>
-              <input type="text" name="specialCapability" [(ngModel)]="symbol.specialCapability" class="col-9">
+              <label for="" class="col-4">Especial: </label>
+              <select class="col-6 col-md-7 m-1" name="special" id="special" [(ngModel)]="symbol.specialCapability">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let specialType of specialTypes" value={{specialType.specialCapability}}>{{specialType.specialCapability}}</option>
+              </select>
             </div>
             <div class="m-2 row">
-                <label for="" class="col-3">Propio/Enemigo: </label>
-                <input type="text" name="affiliation" [(ngModel)]="symbol.affiliation" class="col-9">
+                <label for="" class="col-4">Afiliación: </label>
+                <select class="col-6 col-md-7 m-1" name="affiliation" id="affiliation" [(ngModel)]="symbol.affiliation">
+                  <option value= "">Todas</option>
+                  <option *ngFor="let affiliationType of affiliationTypes" value={{affiliationType.affiliation}}>{{affiliationType.affiliation}}</option>
+                </select>
               </div>
             
           </form>

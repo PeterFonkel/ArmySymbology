@@ -8,10 +8,10 @@ import javax.persistence.Id;
 @Entity
 public class Unit extends Symbol {
 	
-	private String size;
-	private String branch;
-	private String mobility;
-	private String specialCapability;
+	private String size = "";
+	private String branch = "";
+	private String mobility = "";
+	private String specialCapability = "";
 		
 	public Unit() {
 		super();

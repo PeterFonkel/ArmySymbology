@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Symbol } from '../models/symbol';
 import { map } from 'rxjs/operators';
+import { SizeType } from '../models/sizeType';
 
 @Injectable({
   providedIn: 'root'
@@ -38,5 +39,7 @@ export class SymbolsService {
   patchSymbol(symbol: any): Observable<any> {
     return this.http.patch(this.endpoint + "/" + symbol.id, symbol);
   }
-
+  searchSymbols(symbol:any): Observable<Symbol[]>{
+    return this.http.post<any>(this.endpoint + "/search/unitSearch", symbol).pipe(map(response=>response._embedded.units));
+  }
 }

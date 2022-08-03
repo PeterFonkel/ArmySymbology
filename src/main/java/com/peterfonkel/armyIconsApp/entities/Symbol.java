@@ -16,8 +16,8 @@ public class Symbol implements Drawable {
 	@GeneratedValue
 	Long id;
 	
-	private String affiliation;
-	private String url;
+	private String affiliation ="";
+	private String url = "";
 	
 	public Symbol() {
 		super();
