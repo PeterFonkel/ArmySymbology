@@ -1,7 +1,9 @@
+import { Imagen } from "./Imagen";
+
 export class Symbol {
     id: string;
 	affiliation: string;
-	url: string;
+	imagen: Imagen[] = [];
     size: string;
 	branch: string;
 	mobility: string;

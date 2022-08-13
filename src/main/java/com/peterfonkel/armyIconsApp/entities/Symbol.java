@@ -22,7 +22,6 @@ public class Symbol implements Drawable {
 	public Symbol() {
 		super();
 	}
-	
 			
 	public Symbol(String affiliation, String url) {
 		super();
@@ -30,13 +29,14 @@ public class Symbol implements Drawable {
 		this.url = url;
 	}
 
-
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getAffiliation() {
 		return affiliation;
 	}
@@ -48,6 +48,7 @@ public class Symbol implements Drawable {
 	public String getUrl() {
 		return url;
 	}
+	
 	public void setUrl(String url) {
 		this.url = url;
 	}

@@ -56,7 +56,7 @@
 <hr>
 
 <div *ngFor="let symbol of symbols" style="display:inline-block;" class="row m-2">
-    <app-symbol [symbol]="symbol" (deleteSymbolEvent)="deleteSymbol($event)" (modifySymbolEvent)="openModalModify($event)"></app-symbol>
+    <app-symbol *ngIf="symbol.imagen[0] !== undefined" [symbol]="symbol" (deleteSymbolEvent)="deleteSymbol($event)" (modifySymbolEvent)="openModalModify($event)"></app-symbol>
 </div>
 
 
@@ -163,7 +163,9 @@
                   <option *ngFor="let affiliationType of affiliationTypes" value={{affiliationType.affiliation}}>{{affiliationType.affiliation}}</option>
                 </select>
               </div>
-            
+
+                <input type="file" id="file" (change)="seleccionarImagen($event)">
+           
           </form>
         </div>
         <div class="modal-footer">

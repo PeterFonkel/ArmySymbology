@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.14",
     "@popperjs/core": "^2.11.5",
     "bootstrap": "^5.2.0",
+    "firebase": "^8.10.0",
     "jquery": "^3.6.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
