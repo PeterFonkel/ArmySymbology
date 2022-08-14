@@ -99,6 +99,7 @@ export class SymbolsComponent implements OnInit {
   //Borrar un simbolo
   deleteSymbol(symbol: any) {
     this.symbolsService.deleteSymbol(symbol.id).subscribe(response=>{
+      this.imagenesService.deleteImage(symbol.imagen[0], symbol.id);
       this.ngOnInit();
     })
   }
@@ -106,7 +107,11 @@ export class SymbolsComponent implements OnInit {
   //Modificar un simbolo
   modifySymbol() {
     this.symbolsService.patchSymbol(this.symbol).subscribe(response=>{
-      this.ngOnInit();
+      if (this.imagenASubir.url !== undefined) {
+        this.imagenesService.deleteImage(this.symbol.imagen[0], this.symbol.id);
+        this.imagenesService.subirImagen(this.archivoASubir, this.symbol.id);
+      }
+      this.searchSymbols();
     })
   }
 

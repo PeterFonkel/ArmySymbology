@@ -105,7 +105,7 @@
                   <option *ngFor="let affiliationType of affiliationTypes" value={{affiliationType.affiliation}}>{{affiliationType.affiliation}}</option>
                 </select>
               </div>
-            
+              <input type="file" id="file" (change)="seleccionarImagen($event)">
           </form>
         </div>
         <div class="modal-footer">

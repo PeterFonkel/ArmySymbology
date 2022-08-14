@@ -1,10 +1,14 @@
 <div class="card" style="width: 18rem;">
+  <a href="{{symbol.imagen[0].url}}" target="_blank">
     <img src="{{symbol.imagen[0].url}}" class="card-img-top" alt="...">
+  </a>
+    
     <div class="card-body">
       <h5 class="card-title">{{symbol.size}} de {{symbol.branch}} {{symbol.mobility}} {{symbol.specialCapability}} {{symbol.affiliation}}</h5>
       <p>{{symbol.id}}</p>
-      <a href="#" class="btn btn-success m-1">Copiar</a>
-      <a href="#" class="btn btn-primary m-1">Descargar</a>
+      <!---<a href="#" class="btn btn-success m-1">Copiar</a>
+      <a href={{symbol.imagen[0].url}}  class="btn btn-primary m-1" target="" download="{{symbol.size}}_{{symbol.branch}}_{{symbol.mobility}}_{{symbol.specialCapability}}_{{symbol.affiliation}}.png">Descargar</a>
+      --->
       <a class="btn btn-danger m-1" (click)="deleteSymbol()">Borrar</a>
       <a class="btn btn-warning m-1" (click)="openModifyModal()">Modificar</a>
     </div>
