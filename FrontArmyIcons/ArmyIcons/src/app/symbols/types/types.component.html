@@ -1,0 +1,209 @@
+<div class="row m-2">
+    <div class="col-2 m-2 types">
+        <div>
+            <h4 class="text-center row my-2">
+                <b class="col-8">Tamaños</b>
+                <button  class="btn btn-success col-3" (click)="openModalPostSize()">
+                    Nuevo
+                </button>
+            </h4>
+        </div>
+        <hr>
+        <div *ngFor="let sizeType of sizeTypes" class="row m-3 type">
+            <p class="col-6 m-2">{{sizeType.size}}</p>
+            <button class="btn btn-danger m-2 col-4" (click)="deleteSizeType(sizeType.id)">Eliminar</button>
+        </div>
+    </div>
+
+    <div class="col-2 m-2 types">
+        <div>
+            <h4 class="text-center row my-2">
+                <b class="col-8">Afiliaciones</b>
+                <button  class="btn btn-success col-3" (click)="openModalPostAffiliation()">
+                    Nuevo
+                </button>
+            </h4>
+        </div>
+        <hr>
+        <div *ngFor="let affiliationType of affiliationTypes" class="row m-3 type">
+            <p class="col-6 m-2">{{affiliationType.affiliation}} </p>
+            <button class="btn btn-danger col-4 m-2" (click)="deleteAffiliationType(affiliationType.id)">Eliminar</button>
+        </div>
+    </div>
+    
+    <div class="col-2 m-2 types">
+        <div>
+            <h4 class="text-center row my-2">
+                <b class="col-8">Armas</b>
+                <button  class="btn btn-success col-3" (click)="openModalPostBranch()">
+                    Nuevo
+                </button>
+            </h4>
+        </div>
+        <hr>
+        <div *ngFor="let branchType of branchTypes" class="row m-3 type">
+            <p class="col-6 m-2">{{branchType.branch}}</p>
+            <button class="btn btn-danger col-4 m-2" (click)="deleteBranchType(branchType.id)">Eliminar</button>
+        </div>
+    </div>
+
+    <div class="col-2 m-2 types">
+        <div>
+            <h4 class="text-center row my-2">
+                <b class="col-8">Movilidad</b>
+                <button  class="btn btn-success col-3" (click)="openModalPostMobility()">
+                    Nuevo
+                </button>
+            </h4>
+        </div>
+        <hr>
+        <div *ngFor="let mobilityType of mobilityTypes"class="row m-3 type">
+            <p class="col-6 m-2">{{mobilityType.mobility}}</p>
+            <button class="btn btn-danger col-4 m-2" (click)="deleteMobilityType(mobilityType.id)">Eliminar</button>
+        </div>
+    </div>
+
+    <div class="col-2 m-2 types">
+        <div>
+            <h4 class="text-center row my-2">
+                <b class="col-8">Cap. especiales</b>
+                <button  class="btn btn-success col-3" (click)="openModalPostSpecial()">
+                    Nuevo
+                </button>
+            </h4>
+        </div>
+        <hr>
+        <div *ngFor="let specialType of specialTypes" class="row m-3 type">
+            <p class="col-6 m-2">{{specialType.specialCapability}}</p>
+            <button class="btn btn-danger col-4 m-2" (click)="deleteSpecialType(specialType.id)">Eliminar</button>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Modal Nuevo SizeType-->
+<div class="modal fade" id="postSizeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Tamaño</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" class="m-4">
+            <div class="m-2 row">
+              <label for="tamaño" class="col-4">Tamaño: </label>
+              <input class="col-6 col-md-7 m-1" name="size" id="size" [(ngModel)]="newSizeType.size">
+            </div>
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+          <button type="button" class="btn btn-warning" (click)="postSizeType()" data-bs-dismiss="modal">CREAR NUEVO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Modal Nuevo AffiliationType-->
+<div class="modal fade" id="postAffiliationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nueva afiliación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" class="m-4">
+            <div class="m-2 row">
+              <label for="tamaño" class="col-4">Afiliación: </label>
+              <input class="col-6 col-md-7 m-1" name="size" id="size" [(ngModel)]="newAffiliationType.affiliation">
+            </div>
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+          <button type="button" class="btn btn-warning" (click)="postAffiliationType()" data-bs-dismiss="modal">CREAR NUEVO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Modal Nuevo BranchType-->
+<div class="modal fade" id="postBranchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nueva arma</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" class="m-4">
+          <div class="m-2 row">
+            <label for="tamaño" class="col-4">Arma: </label>
+            <input class="col-6 col-md-7 m-1" name="size" id="size" [(ngModel)]="newBranchType.branch">
+          </div>
+         
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+        <button type="button" class="btn btn-warning" (click)="postBranchType()" data-bs-dismiss="modal">CREAR NUEVO</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!-- Modal Nuevo MobilityType-->
+ <div class="modal fade" id="postMobilityModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nueva movilidad</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" class="m-4">
+          <div class="m-2 row">
+            <label for="tamaño" class="col-4">Movilidad: </label>
+            <input class="col-6 col-md-7 m-1" name="size" id="size" [(ngModel)]="newMobilityType.mobility">
+          </div>
+         
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+        <button type="button" class="btn btn-warning" (click)="postMobilityType()" data-bs-dismiss="modal">CREAR NUEVO</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Nuevo specialType-->
+<div class="modal fade" id="postSpecialModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo especial</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="" class="m-4">
+          <div class="m-2 row">
+            <label for="tamaño" class="col-4">Cap. especial: </label>
+            <input class="col-6 col-md-7 m-1" name="size" id="size" [(ngModel)]="newSpecialType.specialCapability">
+          </div>
+         
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+        <button type="button" class="btn btn-warning" (click)="postSpecialType()" data-bs-dismiss="modal">CREAR NUEVO</button>
+      </div>
+    </div>
+  </div>
+</div>

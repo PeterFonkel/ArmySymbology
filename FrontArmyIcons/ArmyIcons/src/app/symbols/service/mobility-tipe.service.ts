@@ -18,5 +18,21 @@ export class MobilityTipeService {
   getMobilityTypes(): Observable<MobilityType[]>{
     return this.http.get<any>(this.endpoint).pipe(map(response=>response._embedded.mobilityTypes))
   }
+  deleteMobility(id: string): Observable<void> {
+    console.log(id)
+    return this.http.delete<any>(this.endpoint + "/" + id);
+  }
+  
+  getIdType(p: any): string {
+    let url = p._links.self.href;
+    let parts = url.split("/");
+    return parts[parts.length - 1];
+  }
 
+  mapearType(type: any): string {
+   return this.getIdType(type);
+  }
+  postType(mobility: MobilityType): Observable<MobilityType>{
+    return this.http.post<any>(this.endpoint, mobility);
+  }
 }

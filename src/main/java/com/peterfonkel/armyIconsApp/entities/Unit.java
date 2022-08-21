@@ -17,9 +17,9 @@ public class Unit extends Symbol {
 		super();
 	}
 
-	public Unit(String affiliation, String type, String url, String  size, String branch, String mobility, String specialCapability) {
+	public Unit(String affiliation, String type, String  size, String branch, String mobility, String specialCapability) {
 		
-		super(affiliation, url);
+		super(affiliation);
 		this.size = size;
 		this.branch = branch;
 		this.mobility = mobility;

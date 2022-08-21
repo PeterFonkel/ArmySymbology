@@ -1,0 +1,69 @@
+<div class="text-center m-3">
+    <h4><b>Proponer la creación de un símbolo</b></h4>
+    <p>En esta sección podrá crear un símbolo en la aplicación. Puede subir la imagen y sus datos. El administrador revisará la solicitud y la validadrá. Esto puede tardar 1 o 2 dias.</p>
+</div>
+
+<div class="text-center">
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#postModal">
+        Crear un nuevo símbolo
+    </button>
+</div>
+
+
+<div class="modal fade" id="postModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Simbolo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="" class="m-4">
+            <div class="m-2 row">
+              <label for="tamaño" class="col-4">Tamaño: </label>
+              <select class="col-6 col-md-7 m-1" name="size" id="size" [(ngModel)]="symbol.size">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let sizeType of sizeTypes" value={{sizeType.size}}>{{sizeType.size}}</option>  
+              </select>
+            </div>
+            <div class="m-2 row">
+              <label for="branch" class="col-4">Arma: </label>
+              <select class="col-6 col-md-7 m-1" name="branch" id="branch" [(ngModel)]="symbol.branch">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let branchType of branchTypes" value={{branchType.branch}}>{{branchType.branch}}</option>
+              </select>
+            </div>
+            <div class="m-2 row">
+              <label for="mobility" class="col-4">Movilidad: </label>
+              <select class="col-6 col-md-7 m-1" name="mobility" id="mobility" [(ngModel)]="symbol.mobility">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let mobilityType of mobilityTypes" value={{mobilityType.mobility}}>{{mobilityType.mobility}}</option>
+              </select>
+            </div>
+            <div class="m-2 row">
+              <label for="" class="col-4">Especial: </label>
+              <select class="col-6 col-md-7 m-1" name="special" id="special" [(ngModel)]="symbol.specialCapability">
+                <option value= "">Sin selección</option>
+                <option *ngFor="let specialType of specialTypes" value={{specialType.specialCapability}}>{{specialType.specialCapability}}</option>
+              </select>
+            </div>
+            <div class="m-2 row">
+                <label for="" class="col-4">Afiliación: </label>
+                <select class="col-6 col-md-7 m-1" name="affiliation" id="affiliation" [(ngModel)]="symbol.affiliation">
+                  <option value= "">Todas</option>
+                  <option *ngFor="let affiliationType of affiliationTypes" value={{affiliationType.affiliation}}>{{affiliationType.affiliation}}</option>
+                </select>
+              </div>
+
+                <input type="file" id="file" (change)="seleccionarImagen($event)">
+           
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+          <button type="button" class="btn btn-warning" (click)="postSymbol()" data-bs-dismiss="modal">CREAR NUEVO</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

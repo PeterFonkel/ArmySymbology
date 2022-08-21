@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of  } from 'rxjs';
 import { AffiliationType } from '../models/affiliationType';
 import { BranchType } from '../models/branchType';
 import { Imagen } from '../models/Imagen';
@@ -15,17 +14,13 @@ import { SizeTipeService } from '../service/size-tipe.service';
 import { SpecialTipeService } from '../service/special-tipe.service';
 import { SymbolsService } from '../service/symbols.service';
 
-
-declare var $: any;
-
 @Component({
-  selector: 'app-symbols',
-  templateUrl: './symbols.component.html',
+  selector: 'app-symbol-form',
+  templateUrl: './symbol-form.component.html',
   styles: []
 })
+export class SymbolFormComponent implements OnInit {
 
-export class SymbolsComponent implements OnInit {
-  
   symbols: Symbol[] = [];
   symbol: Symbol = new Symbol();
   symbolSearch: Symbol = new Symbol();
@@ -48,10 +43,6 @@ export class SymbolsComponent implements OnInit {
 
   ngOnInit() {
     
-    /* this.getSymbols().subscribe(response=>{
-
-    }); */
-
     //Obtener los tipos de seleccion
     this.sizeTypeService.getSizeTypes().subscribe(response=>{
       this.sizeTypes = response;
@@ -82,51 +73,6 @@ export class SymbolsComponent implements OnInit {
     this.symbolSearch.specialCapability = "";
   }
 
-  //Obtener todos los simbolos
-/*   getSymbols(): Observable<Symbol[]> {
-    this.symbolsService.getSymbols().subscribe(symbols=>{
-      this.symbols = symbols;
-      this.symbols.forEach(symbol => {
-        symbol.id = this.symbolsService.mapearSymbol(symbol);
-        this.imagenesService.getImagen(symbol.id).subscribe(imagenes=>{
-          symbol.url = imagenes[0].url;
-        })
-      });
-    })
-    return of(this.symbols);
-  } */
-
-  //Borrar un simbolo
-  deleteSymbol(symbol: any) {
-    this.symbolsService.deleteSymbol(symbol.id).subscribe(response=>{
-      this.imagenesService.deleteImage(symbol.imagen[0], symbol.id);
-      this.searchSymbols();
-    })
-  }
-
-  //Modificar un simbolo
-  modifySymbol() {
-    this.symbolsService.patchSymbol(this.symbol).subscribe(response=>{
-      if (this.imagenASubir.url !== undefined) {
-        this.imagenesService.deleteImage(this.symbol.imagen[0], this.symbol.id);
-        this.imagenesService.subirImagen(this.archivoASubir, this.symbol.id);
-      }
-      this.searchSymbols();
-    })
-  }
-
-  //Abrir el modal de modificación de símbolo
-  openModalModify(symbol: Symbol): void {
-    this.symbol = symbol;
-    $("#modifyModal").modal('show');
-  }
-
-  //Abrir el modal de crear nuevo simbolo
-  openModalPost(): void {
-    this.symbol = new Symbol();
-    $("#postModal").modal('show');
-  }
-
   //Crear un simbolo nuevo
   postSymbol(): void {
     this.symbolsService.postSymbol(this.symbol).subscribe(response=>{
@@ -134,24 +80,9 @@ export class SymbolsComponent implements OnInit {
       symbolReceived = response;
       symbolReceived.id = this.symbolsService.mapearSymbol(response);
       this.subirImagen(symbolReceived.id);
-      this.searchSymbols();
     })
   }
   
-  //Buscar simbolos por campos 
-  searchSymbols(): void {
-    this.symbols = [];
-    this.symbolsService.searchSymbols(this.symbolSearch).subscribe(symbols=>{
-      this.symbols = symbols;
-      this.symbols.forEach(symbol => {   
-        symbol.id = this.symbolsService.mapearSymbol(symbol);
-        this.imagenesService.getImagen(symbol.id).subscribe(imagenes=>{
-          symbol.imagen = imagenes;
-        });
-      });
-    });
-  }
-
   //Seleccionar una imagen del equipo para subir
   seleccionarImagen(e: any): any {
     this.imagenASubir = new Imagen();

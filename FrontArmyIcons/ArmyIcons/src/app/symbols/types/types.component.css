@@ -1,0 +1,15 @@
+.types{
+    border-color: black; border-width: 2px; 
+    border-style: solid; 
+    width: 20rem; 
+    box-shadow: 3px 10px 5px rgb(100, 100, 100);
+    margin-top: 5px;
+}
+.type{
+    border-style: solid; 
+    border-width:1px; 
+    border-radius: 10px; 
+    background-color: rgb(213, 213, 213);
+    display:flex; 
+    box-shadow: 1px 3px 2px rgb(100, 100, 100);
+}

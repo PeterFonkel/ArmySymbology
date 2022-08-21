@@ -10,23 +10,21 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Inheritance( strategy = InheritanceType.SINGLE_TABLE )
-public class Symbol implements Drawable {
+public class Symbol {
 	
 	@Id
 	@GeneratedValue
 	Long id;
 	
 	private String affiliation ="";
-	private String url = "";
 	
 	public Symbol() {
 		super();
 	}
 			
-	public Symbol(String affiliation, String url) {
+	public Symbol(String affiliation) {
 		super();
 		this.affiliation = affiliation;
-		this.url = url;
 	}
 
 	public Long getId() {
@@ -43,14 +41,5 @@ public class Symbol implements Drawable {
 	
 	public void setAffiliation(String affiliation) {
 		this.affiliation = affiliation;
-	}
-	
-	public String getUrl() {
-		return url;
-	}
-	
-	public void setUrl(String url) {
-		this.url = url;
-	}
-	
+	}	
 }

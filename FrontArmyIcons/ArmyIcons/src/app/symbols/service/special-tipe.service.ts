@@ -17,5 +17,21 @@ export class SpecialTipeService {
   getSpecialTypes(): Observable<SpecialType[]>{
     return this.http.get<any>(this.endpoint).pipe(map(response=>response._embedded.specialTypes))
   }
+  deleteSpecial(id: string): Observable<void> {
+    console.log(id)
+    return this.http.delete<any>(this.endpoint + "/" + id);
+  }
+  
+  getIdType(p: any): string {
+    let url = p._links.self.href;
+    let parts = url.split("/");
+    return parts[parts.length - 1];
+  }
 
+  mapearType(type: any): string {
+   return this.getIdType(type);
+  }
+  postType(special: SpecialType): Observable<SpecialType>{
+    return this.http.post<any>(this.endpoint, special);
+  }
 }

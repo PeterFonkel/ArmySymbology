@@ -10,8 +10,8 @@ public class Equipment extends Symbol{
 		super();
 	}
 
-	public Equipment(String affiliation, String type,String url, String material) {
-		super(affiliation, url);
+	public Equipment(String affiliation, String type, String material) {
+		super(affiliation);
 		this.material = material;
 	}
 

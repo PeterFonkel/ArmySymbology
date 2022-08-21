@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SymbolFormComponent } from './symbol-form/symbol-form.component';
-import { SymbolComponent } from './symbols/symbol/symbol.component';
-import { TypesComponent } from './types/types.component';
+import { HomeComponent } from '../comunes/home/home.component';
+import { SymbolFormComponent } from '../symbols/symbol-form/symbol-form.component';
+import { SymbolsComponent } from '../symbols/symbols/symbols.component';
 
 
 const routes: Routes = [
@@ -10,16 +10,16 @@ const routes: Routes = [
     path: ``,
     children: [
       {
+        path: ``,
+        component: HomeComponent,
+      },
+      {
         path: `symbols`,
-        component: SymbolComponent,
+        component: SymbolsComponent,
       },
       {
         path: `new`,
         component: SymbolFormComponent,
-      },
-      {
-        path: `types`,
-        component: TypesComponent,
       }
     ]
   }
@@ -29,4 +29,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class SymbolsRoutingModule { }
+export class CoreRoutingModule { }
