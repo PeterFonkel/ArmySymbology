@@ -1,0 +1,89 @@
+<div class="row" style="display:inline;">
+    <p *ngIf="usuarioLoggeado.email; else sinLoggear" class="col-12 col-lg-8" style="color: white; display: inline-flex;">Usuario:
+        {{usuarioLoggeado.email}}</p>
+    <ng-template #sinLoggear>
+        <p  class="col-12 col-lg-5" style="color: white; display: inline-flex;">Sin loggear</p>
+    </ng-template>
+    <!---<button *ngIf="!usuarioLoggeado.email" type="button" class="btn btn-sm btn-primary m-1 col-12 col-lg-3" data-bs-toggle="modal"
+        data-bs-target="#signInModal">
+        Registrarse
+    </button>--->
+    <button *ngIf="!usuarioLoggeado.email" type="button" class="btn btn-sm btn-success m-1 col-12 col-lg-3" data-bs-toggle="modal"
+        data-bs-target="#loginModal">
+        Identificarse
+    </button>
+    <button *ngIf="usuarioLoggeado.email" type="button" class="btn btn-sm btn-danger m-1 col-6 col-lg-3" data-bs-toggle="modal"
+        (click)="exitLogin()">
+        Salir login
+    </button>
+</div>
+
+
+<!-- Modal Login-->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div style="display: block;">
+                        <label class="col-3" for="">Email</label>
+                        <input class="col-7" type="text" class="m-3" [(ngModel)]="email" name="email">
+                    </div>
+                    <div style="display: block;">
+                        <label class="col-3" for="">Contraseña</label>
+                        <input class="col-7" type="password" class="m-3" [(ngModel)]="password1" name="password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" (click)="login()" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal signIn-->
+<div class="modal fade" id="signInModal" tabindex="-1" aria-labelledby="signInModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Registrarse</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div style="display: block;" class="row my-2">
+                        <label class="col-3" for="">Nombre</label>
+                        <input  class="col-7" type="text" [(ngModel)]="usuarioNuevo.nombre" name="nombre">
+                    </div>
+                    <div style="display: block;" class="row my-2">
+                        <label class="col-3" for="">Telefono</label>
+                        <input class="col-7" type="text" [(ngModel)]="usuarioNuevo.telefono" name="telefono">
+                    </div>
+                    <div style="display: block;" class="row my-2">
+                        <label class="col-3" for="">Email</label>
+                        <input class="col-7" type="text" [(ngModel)]="usuarioNuevo.email" name="email">
+                    </div>
+                    <div style="display: block;" class="row my-2">
+                        <label class="col-3" for="">Contraseña</label>
+                        <input class="col-7" type="password" [(ngModel)]="password1" name="password">
+                    </div>
+                    <div style="display: block;" class="row my-2">
+                        <label class="col-3" for="">Repetir contraseña</label>
+                        <input class="col-7" type="password" [(ngModel)]="password2" name="password">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" (click)="signin()" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

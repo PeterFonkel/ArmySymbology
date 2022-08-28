@@ -1,14 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Symbol } from '../models/symbol';
 import { map } from 'rxjs/operators';
-import { SizeType } from '../models/sizeType';
+
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class SymbolsService {
 
   endpoint: string = environment.urlAPI + "/units";

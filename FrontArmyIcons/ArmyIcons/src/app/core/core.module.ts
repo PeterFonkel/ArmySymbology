@@ -6,9 +6,9 @@ import { ShellComponent } from './shell/shell.component';
 import { HeaderComponent } from './shell/header/header.component';
 import { FooterComponent } from './shell/footer/footer.component';
 import { MainComponent } from './shell/main/main.component';
-import { SymbolsComponent } from '../symbols/symbols/symbols.component';
 import { SymbolsModule } from '../symbols/symbols.module';
 import { ComunesModule } from '../comunes/comunes.module';
+import { SeguridadModule } from '../seguridad/seguridad.module';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { ComunesModule } from '../comunes/comunes.module';
     CommonModule,
     CoreRoutingModule,
     SymbolsModule,
-    ComunesModule
+    ComunesModule,
+    SeguridadModule
   ],
   exports: [
     ShellComponent, 

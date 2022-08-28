@@ -1,6 +1,6 @@
-<div class="card" style="width: 18rem;">
-  <a href="{{symbol.imagen[0].url}}" target="_blank">
-    <img src="{{symbol.imagen[0].url}}" class="card-img-top" alt="...">
+<div class="card" style="width: 18rem; box-shadow: 3px 10px 7px rgb(100, 100, 100); background-color: rgb(203, 202, 202);">
+  <a href="{{symbol.imagen[0].url}}" target="_blank" class="m-2 text-center">
+    <img src="{{symbol.imagen[0].url}}" class="card-img-top" alt="..." style="height: 12rem; width: auto; ">
   </a>
     
     <div class="card-body">
@@ -9,7 +9,7 @@
       <!---<a href="#" class="btn btn-success m-1">Copiar</a>
       <a href={{symbol.imagen[0].url}}  class="btn btn-primary m-1" target="" download="{{symbol.size}}_{{symbol.branch}}_{{symbol.mobility}}_{{symbol.specialCapability}}_{{symbol.affiliation}}.png">Descargar</a>
       --->
-      <a class="btn btn-danger m-1" (click)="deleteSymbol()">Borrar</a>
-      <a class="btn btn-warning m-1" (click)="openModifyModal()">Modificar</a>
+      <a *ngIf="isLoggedAdmin" class="btn btn-danger m-1" (click)="deleteSymbol()">Borrar</a>
+      <a *ngIf="isLoggedAdmin" class="btn btn-warning m-1" (click)="openModifyModal()">Modificar</a>
     </div>
   </div>

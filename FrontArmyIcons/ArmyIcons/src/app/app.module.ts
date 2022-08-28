@@ -7,6 +7,7 @@ import { SymbolsModule } from './symbols/symbols.module';
 import { HttpClientModule } from "@angular/common/http";
 import { ComunesModule } from './comunes/comunes.module';
 import { CoreModule } from './core/core.module';
+import { fichaInterceptor } from './seguridad/interceptors/ficha.interceptor';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { CoreModule } from './core/core.module';
     ComunesModule,
     CoreModule
   ],
-  providers: [],
+  providers: [fichaInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

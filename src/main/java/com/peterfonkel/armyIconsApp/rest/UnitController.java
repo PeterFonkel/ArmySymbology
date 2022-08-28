@@ -2,6 +2,7 @@ package com.peterfonkel.armyIconsApp.rest;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,7 @@ import org.springframework.hateoas.CollectionModel;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.peterfonkel.armyIconsApp.entities.Unit;
 import com.peterfonkel.armyIconsApp.repositories.UnitDAO;
@@ -29,6 +28,7 @@ public class UnitController {
 		this.unitDAO = unitDAO;
 		
 	}
+	
 	@PostMapping(path = "unitSearch")
 	@ResponseBody
 	public CollectionModel<PersistentEntityResource> getUnitsFiltered(PersistentEntityResourceAssembler assembler, @RequestBody Unit unitSearchReceived) {
