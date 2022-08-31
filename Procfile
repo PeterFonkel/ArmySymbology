@@ -1,1 +1,1 @@
-web: java -jar build/libs/armyIconsApp-0.0.1-RELEASE.jar
+web: java -cp target/classes/;target/dependency/* com.peterfonkel.SimbologyAppApplication
