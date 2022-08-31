@@ -1,1 +1,1 @@
-web: java -cp target/classes/;target/dependency/* com.peterfonkel.SimbologyAppApplication
+web: java -cp target/classes/:target/dependency/* com.peterfonkel.SimbologyAppApplication
