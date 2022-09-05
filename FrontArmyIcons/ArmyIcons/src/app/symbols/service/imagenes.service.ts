@@ -7,9 +7,9 @@ import "firebase/database";
 import "firebase/auth";
 import { Imagen } from '../models/Imagen';
 import { Observable, of } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { firebaseConfig } from 'src/environments/firebaseConfig';
 
-const app = firebase.initializeApp(environment.firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig.firebaseConfig);
 
 @Injectable({
   providedIn: 'root'

@@ -37,3 +37,6 @@ out/
 .vscode/
 FrontArmyIcons/ArmyIcons/src/environments/firebase.ts
 src/main/resources/claves.properties
+
+FrontArmyIcons/ArmyIcons/public
+FrontArmyIcons/ArmyIcons/dist

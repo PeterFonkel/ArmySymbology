@@ -16,6 +16,7 @@ import { Usuario } from "../models/Usuario";
 import { RolImpl } from "../models/RolImpl";
 import Swal from "sweetalert2";
 import { environment } from "src/environments/environment";
+import { firebaseConfig } from "src/environments/firebaseConfig";
 
 const cabecera = {
   headers: new HttpHeaders({ "Content-Type": "application/json" }),
@@ -62,7 +63,7 @@ export class LoginService {
 
   iniciarFirebase() {
     if (firebase.apps.length === 0) {
-      firebase.initializeApp(firebaseConfig);
+      firebase.initializeApp(firebaseConfig.firebaseConfig);
     }
   }
 

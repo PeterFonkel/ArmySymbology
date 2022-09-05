@@ -4,10 +4,6 @@
     <ng-template #sinLoggear>
         <p  class="col-12 col-lg-5" style="color: white; display: inline-flex;">Sin loggear</p>
     </ng-template>
-    <!---<button *ngIf="!usuarioLoggeado.email" type="button" class="btn btn-sm btn-primary m-1 col-12 col-lg-3" data-bs-toggle="modal"
-        data-bs-target="#signInModal">
-        Registrarse
-    </button>--->
     <button *ngIf="!usuarioLoggeado.email" type="button" class="btn btn-sm btn-success m-1 col-12 col-lg-3" data-bs-toggle="modal"
         data-bs-target="#loginModal">
         Identificarse
@@ -62,10 +58,7 @@
                         <label class="col-3" for="">Nombre</label>
                         <input  class="col-7" type="text" [(ngModel)]="usuarioNuevo.nombre" name="nombre">
                     </div>
-                    <div style="display: block;" class="row my-2">
-                        <label class="col-3" for="">Telefono</label>
-                        <input class="col-7" type="text" [(ngModel)]="usuarioNuevo.telefono" name="telefono">
-                    </div>
+                  
                     <div style="display: block;" class="row my-2">
                         <label class="col-3" for="">Email</label>
                         <input class="col-7" type="text" [(ngModel)]="usuarioNuevo.email" name="email">

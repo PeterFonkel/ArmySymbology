@@ -10,7 +10,7 @@ import { SpecialType } from '../models/specialType';
 })
 export class SpecialTipeService {
 
-  endpoint: string = environment.urlAPI + "/specialTypes";
+  endpoint: string = environment.urlAPI + "/specialTypes?size=40";
 
   constructor(private http : HttpClient) { }
 
