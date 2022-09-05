@@ -64,7 +64,7 @@ test {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'com.peterfonkel.armyIconsApp.SimbologyApplication'
+                'Main-Class': 'com.peterfonkel.armyIconsApp.SimbologyAppApplication'
     				)
     }
 }
