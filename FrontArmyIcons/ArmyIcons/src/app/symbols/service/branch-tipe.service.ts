@@ -19,7 +19,6 @@ export class BranchTipeService {
   }
 
   deleteBranch(id: string): Observable<void> {
-    console.log(id)
     return this.http.delete<any>(this.endpoint + "/" + id);
   }
   

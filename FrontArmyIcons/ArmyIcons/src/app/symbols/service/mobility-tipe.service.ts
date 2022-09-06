@@ -19,7 +19,6 @@ export class MobilityTipeService {
     return this.http.get<any>(this.endpoint).pipe(map(response=>response._embedded.mobilityTypes))
   }
   deleteMobility(id: string): Observable<void> {
-    console.log(id)
     return this.http.delete<any>(this.endpoint + "/" + id);
   }
   

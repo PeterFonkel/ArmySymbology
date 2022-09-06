@@ -42,7 +42,6 @@ export class ImagenesService {
 
   //Eliminar una imagen de un producto determinado
   deleteImage(imagen: Imagen, id: string): void {
-    console.log("en delete, Imagen: ", imagen, " , id: ", id)
     let nombreSinPunto = imagen.nombre.split(".")[0];
     let imagenRef = firebase
       .database()
@@ -67,7 +66,6 @@ export class ImagenesService {
     //Recupero la informacion y la asigno al array de imagenes
     imagenPrincipalRef.on("value", (snapshot) => {
       let data = snapshot.val();
-      console.log(data)
       for (var key in data) {
         let imagen = new Imagen();
         imagen.url = data[key].url;
@@ -75,7 +73,6 @@ export class ImagenesService {
         imagenes.push(imagen);
       }
     });
-    console.log(imagenes[0])
     return of(imagenes);
   }
 }

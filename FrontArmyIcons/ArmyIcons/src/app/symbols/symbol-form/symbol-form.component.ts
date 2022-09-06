@@ -46,23 +46,18 @@ export class SymbolFormComponent implements OnInit {
     //Obtener los tipos de seleccion
     this.sizeTypeService.getSizeTypes().subscribe(response=>{
       this.sizeTypes = response;
-      console.log(this.sizeTypes);
     })
     this.branchTypeService.getBranchTypes().subscribe(response=>{
       this.branchTypes = response;
-      console.log(this.branchTypes);
     })
     this.mobilityTypeService.getMobilityTypes().subscribe(response=>{
       this.mobilityTypes = response;
-      console.log(this.mobilityTypes);
     })
     this.specialTypeService.getSpecialTypes().subscribe(response=>{
       this.specialTypes = response;
-      console.log(this.specialTypes);
     })
     this.affiliationTypeService.getAffiliationTypes().subscribe(response=>{
       this.affiliationTypes = response;
-      console.log(this.affiliationTypes);
     })
 
     //Todos los atributos del simbolo para búsqueda en vacio

@@ -48,9 +48,6 @@ export class TypesComponent implements OnInit {
 
   ngOnInit() {
     
-    /* this.getSymbols().subscribe(response=>{
-
-    }); */
     this.getTypes();
     
   }
@@ -103,7 +100,6 @@ export class TypesComponent implements OnInit {
 
   //Eliminar un SizeType
   deleteSizeType(id: string): void {
-    console.log(id);
     this.sizeTypeService.deleteSize(id).subscribe(response=>{
       this.getTypes();
     });
@@ -111,7 +107,6 @@ export class TypesComponent implements OnInit {
 
   //Abrir el modal de crear nuevo SizeType
   openModalPostSize(): void {
-    console.log("en open modal")
     this.symbol = new Symbol();
     $("#postSizeModal").modal('show');
   }
@@ -126,7 +121,6 @@ export class TypesComponent implements OnInit {
 
     //Eliminar un BranchType
     deleteBranchType(id: string): void {
-      console.log(id);
       this.branchTypeService.deleteBranch(id).subscribe(response=>{
         this.getTypes();
       });
@@ -134,7 +128,6 @@ export class TypesComponent implements OnInit {
   
     //Abrir el modal de crear nuevo BranchType
     openModalPostBranch(): void {
-      console.log("en open modal")
       this.symbol = new Symbol();
       $("#postBranchModal").modal('show');
     }
@@ -149,7 +142,6 @@ export class TypesComponent implements OnInit {
 
      //Eliminar un BranchType
      deleteAffiliationType(id: string): void {
-      console.log(id);
       this.affiliationTypeService.deleteAffiliation(id).subscribe(response=>{
         this.getTypes();
       });
@@ -171,7 +163,6 @@ export class TypesComponent implements OnInit {
 
     //Eliminar un MobilityType
     deleteMobilityType(id: string): void {
-      console.log(id);
       this.mobilityTypeService.deleteMobility(id).subscribe(response=>{
         this.getTypes();
       });
@@ -193,7 +184,6 @@ export class TypesComponent implements OnInit {
 
     //Eliminar un SpecialType
     deleteSpecialType(id: string): void {
-      console.log(id);
       this.specialTypeService.deleteSpecial(id).subscribe(response=>{
         this.getTypes();
       });

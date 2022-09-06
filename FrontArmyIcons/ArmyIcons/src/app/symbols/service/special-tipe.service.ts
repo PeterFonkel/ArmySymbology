@@ -19,7 +19,6 @@ export class SpecialTipeService {
   }
 
   deleteSpecial(id: string): Observable<void> {
-    console.log("ID: " + id)
     return this.http.delete<any>(this.endpoint + "/" + id);
   }
   

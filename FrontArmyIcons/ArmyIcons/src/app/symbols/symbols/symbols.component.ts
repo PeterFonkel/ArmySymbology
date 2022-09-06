@@ -47,31 +47,22 @@ export class SymbolsComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    /* this.getSymbols().subscribe(response=>{
-
-    }); */
 
     //Obtener los tipos de seleccion
     this.sizeTypeService.getSizeTypes().subscribe(response=>{
       this.sizeTypes = response;
-      console.log(this.sizeTypes);
     })
     this.branchTypeService.getBranchTypes().subscribe(response=>{
       this.branchTypes = response;
-      console.log(this.branchTypes);
     })
     this.mobilityTypeService.getMobilityTypes().subscribe(response=>{
       this.mobilityTypes = response;
-      console.log(this.mobilityTypes);
     })
     this.specialTypeService.getSpecialTypes().subscribe(response=>{
       this.specialTypes = response;
-      console.log(this.specialTypes);
     })
     this.affiliationTypeService.getAffiliationTypes().subscribe(response=>{
       this.affiliationTypes = response;
-      console.log(this.affiliationTypes);
     })
 
     //Todos los atributos del simbolo para búsqueda en vacio
@@ -81,20 +72,6 @@ export class SymbolsComponent implements OnInit {
     this.symbolSearch.size = "";
     this.symbolSearch.specialCapability = "";
   }
-
-  //Obtener todos los simbolos
-/*   getSymbols(): Observable<Symbol[]> {
-    this.symbolsService.getSymbols().subscribe(symbols=>{
-      this.symbols = symbols;
-      this.symbols.forEach(symbol => {
-        symbol.id = this.symbolsService.mapearSymbol(symbol);
-        this.imagenesService.getImagen(symbol.id).subscribe(imagenes=>{
-          symbol.url = imagenes[0].url;
-        })
-      });
-    })
-    return of(this.symbols);
-  } */
 
   //Borrar un simbolo
   deleteSymbol(symbol: any) {

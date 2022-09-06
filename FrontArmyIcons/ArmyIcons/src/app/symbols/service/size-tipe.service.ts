@@ -19,7 +19,6 @@ export class SizeTipeService {
   }
 
   deleteSize(id: string): Observable<void> {
-    console.log(id)
     return this.http.delete<any>(this.endpoint + "/" + id);
   }
   

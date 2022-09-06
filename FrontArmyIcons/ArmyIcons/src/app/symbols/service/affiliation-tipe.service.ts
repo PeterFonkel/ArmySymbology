@@ -19,7 +19,6 @@ export class AffiliationTipeService {
   }
 
   deleteAffiliation(id: string): Observable<void> {
-    console.log(id)
     return this.http.delete<any>(this.endpoint + "/" + id);
   }
   
