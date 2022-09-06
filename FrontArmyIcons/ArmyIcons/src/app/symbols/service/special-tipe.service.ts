@@ -10,12 +10,12 @@ import { SpecialType } from '../models/specialType';
 })
 export class SpecialTipeService {
 
-  endpoint: string = environment.urlAPI + "/specialTypes?size=40";
+  endpoint: string = environment.urlAPI + "/specialTypes";
 
   constructor(private http : HttpClient) { }
 
   getSpecialTypes(): Observable<SpecialType[]>{
-    return this.http.get<any>(this.endpoint).pipe(map(response=>response._embedded.specialTypes))
+    return this.http.get<any>(this.endpoint + "?size=40").pipe(map(response=>response._embedded.specialTypes))
   }
   deleteSpecial(id: string): Observable<void> {
     console.log(id)
