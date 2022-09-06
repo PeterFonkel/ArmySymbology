@@ -79,7 +79,6 @@ export class LoginService {
             .post(this.endPoint + "/api/usuarios/search/nuevousuario", usuarioNuevo, cabecera)
             .subscribe((response) => {
               if (response) {
-                console.log("ok: ", response);
                 Swal.fire({
                   title: "Usuario creado",
                   text: usuarioNuevo.email,
@@ -121,7 +120,6 @@ export class LoginService {
       .delete(this.endPoint + "/api/usuarios/" + id, cabecera)
       .subscribe((response) => {
         if (response) {
-          console.log("ok: ", response);
           Swal.fire({
             title: "Usuario Eliminado",
             icon: "success",
@@ -165,19 +163,11 @@ export class LoginService {
         this.token = response;
         this.tokenService.setToken(response.value);
         this.http.get<any>(this.endPoint + "/api/usuarios/search/getusuariobyemail?email=" + userCredentials.user.email, cabecera).subscribe(async(usuarioSinMapear) => {
-          console.log("Usuario sin mapear: ", usuarioSinMapear);
-          /*this.mapearUsuario(usuarioSinMapear).subscribe(usuarioMapeado => {
-            this.usuario = usuarioMapeado;
-            console.log("Usuario mapeado: ", this.usuario)
-          });*/
           this.usuario = usuarioSinMapear;
           if (usuarioSinMapear.roles[0].rolNombre == "ROLE_ADMIN") {
             this.setIsAdminFlagObs(true);
           }
-          
-          console.log(this.usuario.roles[0])
           if (usuarioSinMapear) {
-            console.log("ok: ", usuarioSinMapear);
             Swal.fire({
               title: `Bienvenido ${usuarioSinMapear.email}`,
               icon: "success",
