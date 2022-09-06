@@ -39,7 +39,6 @@ export class UsuariosService {
       usuario.id = id;
       usuarios.push(usuario);
     });
-    console.log(usuarios)
     return usuarios;
   }
 
@@ -53,7 +52,6 @@ export class UsuariosService {
 
   getIdUsuario(url: string): string {
     let trozos = url.split("/");
-    // console.log(`trozos: ${ trozos }`);
     return trozos[trozos.length - 1];
   }
 
@@ -63,7 +61,6 @@ export class UsuariosService {
 
   getIdFromUsuarioApi(usuarioApi: any): string {
     let trozos = usuarioApi._links.self.href.split("/");
-    // console.log(`trozos: ${ trozos }`);
     return trozos[trozos.length - 1];
   }
   patchUsuario(usuario: Usuario): void {

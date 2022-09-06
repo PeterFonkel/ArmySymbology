@@ -30,7 +30,6 @@ export class UsuariosComponent implements OnInit {
   getUsuarios(): void {
     this.usuariosService.getUsuarios().subscribe(response => {
       this.usuarios = this.usuariosService.mapearUsuarios(response)
-      console.log(this.usuarios)
 
     })
   }

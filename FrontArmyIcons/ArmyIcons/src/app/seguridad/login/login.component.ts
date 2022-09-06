@@ -51,11 +51,9 @@ export class LoginComponent implements OnInit {
 
   login(): void {
     this.loginService.loginFirebse(this.email, this.password1).then(userCredentials=>{
-      console.log("USERCREDENTIALS: ", userCredentials)
       if(userCredentials){
         this.loginService.loginAPI(userCredentials).subscribe(usuario=>{
           this.usuarioLoggeado = usuario;
-          console.log("Usuario loggeado", this.usuarioLoggeado);
         })
       }
   }).catch((reason) => {
