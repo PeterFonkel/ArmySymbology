@@ -17,8 +17,9 @@ export class SpecialTipeService {
   getSpecialTypes(): Observable<SpecialType[]>{
     return this.http.get<any>(this.endpoint + "?size=40").pipe(map(response=>response._embedded.specialTypes))
   }
+
   deleteSpecial(id: string): Observable<void> {
-    console.log(id)
+    console.log("ID: " + id)
     return this.http.delete<any>(this.endpoint + "/" + id);
   }
   
